@@ -49,3 +49,14 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'rspec-rails'
+
+gem 'sorcery'
+
+group :development do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
