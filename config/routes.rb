@@ -1,5 +1,9 @@
 Challenge::Application.routes.draw do
 
+  resources :books
+
+  resources :stores
+
   # root :to => 'users#index'
   resources :user_sessions
   resources :users
