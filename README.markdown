@@ -1,31 +1,39 @@
-# README
+# 電子書籍価格比較アプリ
 
 ```
-Test markdown
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+本アプリケーションは、情報が分散しがちな電子書籍の値段を比較したい！と、いう願いを込めて作っています。
+現在のところ、クロール・スクレイピングはしておらず、人力での入力が必要です。
 ```
+<a href="http://challenge20131025.herokuapp.com/" target="_blank">こちらでアプリを稼働させています</a>
 
 ## Ruby version
+ruby 2.0.0p247
 
-## System dependencies
+## Rails version
+rails 4.0.0
 
-## Configuration
+### Rails起動
 
-## Database creation
+Gemインストール
 
-## Database initialization
+```
+bundle install --without production
+```
 
-## How to run the test suite
+ローカルDB作成
 
-## Services (job queues, cache servers, search engines, etc.)
+```
+rake db:setup
+```
 
-## Deployment instructions
+ローカルサーバ起動
 
-* ...
+```
+bundle exec rails s
+```
 
+ページアクセス
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+http://0.0.0.0:3000/
+```
