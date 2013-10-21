@@ -46,19 +46,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">電子書籍比較</a>
+          <a class="brand" href="#">電子書籍安いのは？</a>
           <div class="container nav-collapse">
 		  <ul class="nav">
-			  <li><div1>
-			      <% if current_user %>
-      <%= link_to "プロフィール変更", edit_user_path(current_user.id) %>
-      <%= link_to "ログアウト", :logout, method: :post %>
-    <% else %>
-      <%= link_to "新規登録", new_user_path %> |
-      <%= link_to "ログイン", :login %>
-    <% end %>
-    </div></li>
-            </ul>
+			<li>
+              <div>
+			    <% if current_user %>
+                  <%= '%s' % current_user.username %>
+                  <%= link_to "プロフィールを変更", edit_user_path(current_user.id) %>
+                  <%= link_to "ログアウト", :logout, method: :post %>
+                <% else %>
+                  <%= link_to "新規登録", new_user_path %> |
+                  <%= link_to "ログイン", :login %>
+                <% end %>
+              </div>
+            </li>
+          </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
