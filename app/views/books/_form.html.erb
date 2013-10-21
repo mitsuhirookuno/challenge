@@ -15,6 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :stores %><br>
+    <%= f.select :store_ids, Store.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :size => 10 %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
