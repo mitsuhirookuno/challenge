@@ -1,4 +1,4 @@
-<h1>Listing books</h1>
+<h1>書籍 一覧</h1>
 
 <table class='table table-striped table-bordered table-condensed'>
   <thead>
@@ -15,8 +15,8 @@
       <tr>
         <td><%= book.name %></td>
         <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '編集', edit_book_path(book) %></td>
+        <td><%= link_to '破棄', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
