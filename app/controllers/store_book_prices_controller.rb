@@ -5,7 +5,7 @@ class StoreBookPricesController < ApplicationController
 
   # GET /store_book_prices
   def index
-    @store_book_prices = StoreBookPrice.find( :all, include: ['store_book' => [ 'store', 'book' ]]  )
+    @store_book_prices = StoreBookPrice.all( include: ['store_book' => [ 'store', 'book' ]]  )
   end
 
   # GET /store_book_prices/1

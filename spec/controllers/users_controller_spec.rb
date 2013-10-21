@@ -39,7 +39,7 @@ describe UsersController do
       user = User.create! valid_attributes
       get :index, {}, valid_session
 #      assigns(:users).should eq([user])
-      assigns(:users).should eq(User.find(:all))
+      assigns(:users).should eq(User.all)
     end
   end
 
