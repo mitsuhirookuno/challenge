@@ -1,1 +1,24 @@
-本アプリは課題作成中のアプリケーションです。
+<table class='table table-striped table-bordered table-condensed'>
+  <tr>
+    <th>タイトル</th>
+    <% @stores.each{ |store| %>
+      <th><%=store.name %></th>
+    <% } %>
+  </tr>
+<% @books.each{ |book| %>
+  <tr>
+    <td>
+     <%=book.name %>
+    </td>
+    <% @stores.each{ |store| %>
+      <td>
+      <% if store_book = store.store_books.find( :first, conditions: { book_id: book.id } ) %>
+        <%=number_to_currency(store_book.price, unit: "￥", precision: 0 ) %>
+      <% else %>
+        未販売
+      <% end %>
+      </td>
+    <% } %>
+  </tr>
+<% } %>
+</table>
