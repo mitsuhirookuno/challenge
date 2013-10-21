@@ -27,6 +27,7 @@ ebookjapan = Store.create!( name: 'EBookJapan' )
 one_piece = Book.create!( name: 'ONE PIECE', price: 410 )
 amazon.books << one_piece
 amazon.set_book_price( one_piece, 368 )
+amazon.save!
 # play.books       << one_piece
 rakuten.books << one_piece
 rakuten.set_book_price( one_piece, 368 )

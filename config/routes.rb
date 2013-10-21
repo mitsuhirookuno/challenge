@@ -2,6 +2,7 @@ Challenge::Application.routes.draw do
 
   resources :books
   resources :stores
+  resources :store_book_prices
   resources :user_sessions
   resources :users
 

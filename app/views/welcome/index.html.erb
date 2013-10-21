@@ -22,10 +22,10 @@
     <% @stores.each{ |store| %>
       <td>
       <% if store_book = store.store_books.find( :first, conditions: { book_id: book.id } ) %>
-        <% if store_book.store_book_price.presence %>
+        <% if store_book.store_book_price.price.presence %>
           <%=number_to_currency(store_book.store_book_price.price, unit: "￥", precision: 0 ) %>
         <% else %>
-          価格設定待ち
+          未入力
         <% end %>
       <% else %>
         未販売
