@@ -4,7 +4,7 @@
 
   <thead>
     <tr>
-      <th></th>
+      <th>書籍</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,6 +17,7 @@
         <td><%= store_book_price.store_book.store.name %></td>
         <td><%= store_book_price.store_book.store_book_price.price if store_book_price.store_book.store_book_price.presence  %></td>
         <td><%= link_to 'Edit', edit_store_book_price_path(store_book_price) %></td>
+        <td><%= link_to 'Destroy', store_book_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

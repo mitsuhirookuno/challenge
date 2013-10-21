@@ -47,3 +47,5 @@ rakuten.set_book_price( strikes_back_losgene, 1_200 )
 booklive.books << strikes_back_losgene
 booklive.set_book_price( strikes_back_losgene, 1_260 )
 # ebookjapan.books << strikes_back_losgene
+
+User.create!( username: 'hogehoge', email: 'aaa@bbb.ccc', password: 'aaaa', password_confirmation: 'aaaa' )

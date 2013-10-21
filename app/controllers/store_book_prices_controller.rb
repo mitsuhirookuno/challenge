@@ -29,6 +29,15 @@ class StoreBookPricesController < ApplicationController
     end
   end
 
+  # DELETE /store_book_prices/1
+  def destroy
+    @store_book_price.store_book.destroy
+    respond_to do |format|
+      format.html { redirect_to store_book_prices_url }
+      format.json { head :no_content }
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_store_book_price
