@@ -7,12 +7,13 @@
 <table class='table table-striped table-bordered table-condensed'>
   <tr>
     <th>タイトル</th>
-    <th>定価</th>
+    <th>紙出版物</th>
     <% @stores.each{ |store| %>
       <th><%=store.name %></th>
     <% } %>
   </tr>
 <% @books.each{ |book| %>
+  <% min_price = book.store_books.min_by{|r| r.store_book_price.price }.store_book_price.price %>
   <tr>
     <td>
      <%=book.name %>
@@ -24,7 +25,12 @@
       <% if store_book = store.store_books.find( :first, conditions: { book_id: book.id } ) %>
         <% if store_book.store_book_price.price.presence %>
           <%=number_to_currency(store_book.store_book_price.price, unit: "￥", precision: 0 ) %>
-          <span class="label label-important">
+          <br />
+          <% if min_price == store_book.store_book_price.price %>
+            <span class="label label-important">
+          <% else %>
+            <span class="label label-info">
+          <% end %>
           <%= '(%d％ OFF)' % ((1 - (store_book.store_book_price.price.to_f / book.price)).round(2) * 100) %>
           </span>
         <% else %>
@@ -38,3 +44,6 @@
   </tr>
 <% } %>
 </table>
+
+<span class="label label-important">最も安い値引き率</span>
+<span class="label label-info">値引き率</span>

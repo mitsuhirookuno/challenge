@@ -16,7 +16,7 @@ end
 
 # Store
 amazon    = Store.create!( name: 'amazon' )
-play      = Store.create!( name: 'play' )
+play      = Store.create!( name: 'Google play' )
 rakuten   = Store.create!( name: '楽天ブックス' )
 booklive  = Store.create!( name: 'BookLive' )
 ebookjapan = Store.create!( name: 'EBookJapan' )

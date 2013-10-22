@@ -7,6 +7,8 @@
 
 <a href="http://challenge20131025.herokuapp.com/" target="_blank">こちらでアプリを稼働させています</a>
 
+<a href="http://jenkins.rubyprogrammer.info/job/Challenge20131025/" target="_blank">こちらでSpecを稼働させています</a>
+
 ## Ruby version
 ruby 2.0.0p247
 
@@ -47,7 +49,6 @@ bundle install --without production
 ローカルDB作成
 
 ```
-rake db:migrate
 rake db:setup
 ```
 

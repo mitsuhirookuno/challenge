@@ -66,4 +66,6 @@ end
 
 group :test do
   gem 'pry'
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end
