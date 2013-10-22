@@ -22,16 +22,17 @@
       <%=number_to_currency(book.price, unit: "￥", precision: 0 ) %>
     <% @stores.each{ |store| %>
       <td>
-      <% if store_book = store.store_books.find( :first, conditions: { book_id: book.id } ) %>
-        <% if store_book.store_book_price.price.presence %>
-          <%=number_to_currency(store_book.store_book_price.price, unit: "￥", precision: 0 ) %>
+      <% if book.stores.include?(store) %>
+        <% store_books = book.store_books.find{|r| r.store_id == store.id } %>
+        <% if store_books.store_book_price.price.presence %>
+          <%=number_to_currency(store_books.store_book_price.price, unit: "￥", precision: 0 ) %>
           <br />
-          <% if min_price == store_book.store_book_price.price %>
+          <% if min_price == store_books.store_book_price.price %>
             <span class="label label-important">
           <% else %>
             <span class="label label-info">
           <% end %>
-          <%= '(%d％ OFF)' % ((1 - (store_book.store_book_price.price.to_f / book.price)).round(2) * 100) %>
+          <%= '(%d％ OFF)' % ((1 - (store_books.store_book_price.price.to_f / book.price)).round(2) * 100) %>
           </span>
         <% else %>
           未入力
