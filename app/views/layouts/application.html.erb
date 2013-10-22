@@ -48,20 +48,14 @@
           </a>
           <a class="brand" href="#">電子書籍安いのは？</a>
           <div class="container nav-collapse">
-		  <ul class="nav">
-			<li>
-              <div>
 			    <% if current_user %>
-                  <%= '%s' % current_user.username %>
+                  <span class="label"><%= '%s' % current_user.username %></span>
                   <%= link_to "プロフィールを変更", edit_user_path(current_user.id) %>
                   <%= link_to "ログアウト", :logout, method: :post %>
                 <% else %>
                   <%= link_to "新規登録", new_user_path %> |
                   <%= link_to "ログイン", :login %>
                 <% end %>
-              </div>
-            </li>
-          </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -70,9 +64,22 @@
     <div class="container">
         <div class="row">
           <div class="span9">
-	    <%= bootstrap_flash %>
+	        <%= bootstrap_flash %>
             <%= yield %>
           </div>
+          <% if current_user %>
+            <div class="span3">
+              <div class="well sidebar-nav">
+                <h3>データ編集</h3>
+                <ul class="nav nav-list">
+                  <li class="nav-header">Sidebar</li>
+                  <li><%=link_to( '書籍編集', { controller: 'books' }, { class: 'btn'} ) %></li>
+                  <li><%=link_to( 'ストア編集', { controller: 'stores' }, { class: 'btn'} ) %></li>
+                  <li><%=link_to( 'ストア別価格編集', { controller: 'store_book_prices' }, { class: 'btn'} ) %></li>
+                </ul>
+              </div><!--/.well -->
+            </div><!--/span-->
+          <% end %>
         </div><!--/row-->
 
       <footer>

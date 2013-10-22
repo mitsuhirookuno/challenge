@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>書籍名:</strong>
   <%= @book.name %>
+  <strong>価格:</strong>
+  <%= @book.price %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to '編集', edit_book_path(@book) %> |
+<%= link_to '一覧', books_path %>

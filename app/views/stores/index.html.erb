@@ -1,9 +1,9 @@
-<h1>Listing stores</h1>
+<h1>ストア 一覧</h1>
 
-<table>
+<table class='table table-striped table-bordered table-condensed'>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>名称</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +14,9 @@
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.name %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '参照', store %></td>
+        <td><%= link_to '編集', edit_store_path(store) %></td>
+        <td><%= link_to '破棄', store, method: :delete, data: { confirm: '本当に破棄しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Store', new_store_path %>
+<%= link_to '新しくストアを追加する', new_store_path %>

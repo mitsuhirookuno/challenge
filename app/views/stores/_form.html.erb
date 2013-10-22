@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label '名称' %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :books %><br>
+    <%= f.label '取り扱いのある書籍' %><br>
     <%= f.select :book_ids, Book.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :size => 10 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit('反映') %>
   </div>
 <% end %>

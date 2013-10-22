@@ -1,9 +1,3 @@
-<% if current_user %>
-  <%=link_to( '書籍編集', controller: 'books' ) %>
-  <%=link_to( '店舗編集', controller: 'stores' ) %>
-  <%=link_to( '店舗別価格編集', controller: 'store_book_prices' ) %>
-<% end %>
-
 <table class='table table-striped table-bordered table-condensed'>
   <tr>
     <th>タイトル</th>
@@ -13,7 +7,7 @@
     <% } %>
   </tr>
 <% @books.each{ |book| %>
-  <% min_price = book.store_books.min_by{|r| r.store_book_price.price }.store_book_price.price %>
+  <% min_price = book.store_books.min_by{|r| r.store_book_price.price }.store_book_price.price if book.store_books.size > 0 %>
   <tr>
     <td>
      <%=book.name %>
