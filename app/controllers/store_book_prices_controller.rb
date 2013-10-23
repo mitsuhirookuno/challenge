@@ -5,7 +5,7 @@ class StoreBookPricesController < ApplicationController
 
   # GET /store_book_prices
   def index
-    @store_book_prices = StoreBookPrice.all( include: ['store_book' => [ 'store', 'book' ]]  )
+    @store_book_prices = StoreBookPrice.includes( :store_book => [ :store_book_price, :book ] ).load
   end
 
   # GET /store_book_prices/1
@@ -20,7 +20,7 @@ class StoreBookPricesController < ApplicationController
   def update
     respond_to do |format|
       if @store_book_price.update(store_book_price_params)
-        format.html { redirect_to @store_book_price, notice: 'Store was successfully updated.' }
+        format.html { redirect_to @store_book_price, notice: 'ストア別価格を更新しました！' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

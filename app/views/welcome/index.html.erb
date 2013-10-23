@@ -10,30 +10,31 @@
   <% min_price = book.store_books.reject{|r| r.store_book_price.price.nil? }.min_by{|r| r.store_book_price.price }.store_book_price.price if book.store_books.size > 0 %>
   <tr>
     <td>
-     <%=book.name %>
+      <%=book.name %>
     </td>
     <td>
       <%=number_to_currency(book.price, unit: "￥", precision: 0 ) %>
+    </td>
     <% @stores.each{ |store| %>
       <td>
-      <% if book.stores.include?(store) %>
-        <% store_books = book.store_books.find{|r| r.store_id == store.id } %>
-        <% if store_books.store_book_price.price.presence %>
-          <%=number_to_currency(store_books.store_book_price.price, unit: "￥", precision: 0 ) %>
-          <br />
-          <% if min_price == store_books.store_book_price.price %>
-            <span class="label label-important">
+        <% if book.stores.include?(store) %>
+          <% store_books = book.store_books.find{|r| r.store_id == store.id } %>
+          <% if store_books.store_book_price.price.presence %>
+            <%=number_to_currency(store_books.store_book_price.price, unit: "￥", precision: 0 ) %>
+            <br />
+            <% if min_price == store_books.store_book_price.price %>
+              <span class="label label-important">
+            <% else %>
+              <span class="label label-info">
+            <% end %>
+            <%= '(%d％ OFF)' % ((1 - (store_books.store_book_price.price.to_f / book.price)).round(2) * 100) %>
+            </span>
           <% else %>
-            <span class="label label-info">
+            未入力
           <% end %>
-          <%= '(%d％ OFF)' % ((1 - (store_books.store_book_price.price.to_f / book.price)).round(2) * 100) %>
-          </span>
         <% else %>
-          未入力
+          未販売
         <% end %>
-      <% else %>
-        未販売
-      <% end %>
       </td>
     <% } %>
   </tr>

@@ -72,7 +72,8 @@
               <div class="well sidebar-nav">
                 <h3>データ編集</h3>
                 <ul class="nav nav-list">
-                  <li class="nav-header">対象を選択して下さい</li>
+                  <li><%=link_to( 'Top表示', { controller: 'welcome' }, { class: 'btn'} ) %></li>
+                  <li class="nav-header">編集対象を選択して下さい</li>
                   <li><%=link_to( '書籍編集', { controller: 'books' }, { class: 'btn'} ) %></li>
                   <li><%=link_to( 'ストア編集', { controller: 'stores' }, { class: 'btn'} ) %></li>
                   <li><%=link_to( 'ストア別価格編集', { controller: 'store_book_prices' }, { class: 'btn'} ) %></li>

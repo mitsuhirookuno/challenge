@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Price:</strong>
-  <%= @store_book_price.price %>
+  <strong>価格:</strong>
+  <%= number_to_currency(@store_book_price.price, unit: "￥", precision: 0 ) %>
 </p>
 
-<%= link_to 'Edit', edit_store_book_price_path(@store_book_price) %> |
-<%= link_to 'Back', store_book_prices_path %>
+<%= link_to '編集', edit_store_book_price_path(@store_book_price) %> |
+<%= link_to '一覧', store_book_prices_path %>
