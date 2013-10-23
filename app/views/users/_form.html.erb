@@ -2,11 +2,11 @@
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "エラー") %> を修正して下さい:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= msg.gsub(/Username/,'ユーザー名').gsub(/Email/,'メールアドレス').gsub(/Password/,'パスワード').gsub(/Password confirmation/,'パスワード（確認）') %></li>
       <% end %>
       </ul>
     </div>
