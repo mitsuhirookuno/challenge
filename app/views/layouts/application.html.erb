@@ -49,7 +49,7 @@
           <a class="brand" href="#">電子書籍安いのは？</a>
           <div class="container nav-collapse">
 			    <% if current_user %>
-                  <span class="label"><%= '%s' % current_user.username %></span>
+                  <span class="label"><%= '%s' % current_user.username %>さん</span>
                   <%= link_to "プロフィールを変更", edit_user_path(current_user.id) %>
                   <%= link_to "ログアウト", :logout, method: :post %>
                 <% else %>
@@ -72,7 +72,7 @@
               <div class="well sidebar-nav">
                 <h3>データ編集</h3>
                 <ul class="nav nav-list">
-                  <li class="nav-header">Sidebar</li>
+                  <li class="nav-header">対象を選択して下さい</li>
                   <li><%=link_to( '書籍編集', { controller: 'books' }, { class: 'btn'} ) %></li>
                   <li><%=link_to( 'ストア編集', { controller: 'stores' }, { class: 'btn'} ) %></li>
                   <li><%=link_to( 'ストア別価格編集', { controller: 'store_book_prices' }, { class: 'btn'} ) %></li>

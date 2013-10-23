@@ -30,7 +30,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to @store, notice: 'ストアを追加しました！' }
         format.json { render action: 'show', status: :created, location: @store }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to @store, notice: 'ストアを更新しました！' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

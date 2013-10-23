@@ -7,7 +7,7 @@
     <% } %>
   </tr>
 <% @books.each{ |book| %>
-  <% min_price = book.store_books.min_by{|r| r.store_book_price.price }.store_book_price.price if book.store_books.size > 0 %>
+  <% min_price = book.store_books.reject{|r| r.store_book_price.price.nil? }.min_by{|r| r.store_book_price.price }.store_book_price.price if book.store_books.size > 0 %>
   <tr>
     <td>
      <%=book.name %>
