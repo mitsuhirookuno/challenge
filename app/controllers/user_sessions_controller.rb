@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
   def create
     respond_to do |format|
       if @user = login(params[:username],params[:password])
-        format.html { redirect_to( root_url, :notice => 'Login successful.') }
+        format.html { redirect_to( root_url, :notice => 'ログインに成功しました.') }
         format.xml { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { flash.now[:alert] = "Login failed."; render :action => "new" }
@@ -20,6 +20,6 @@ class UserSessionsController < ApplicationController
     
   def destroy
     logout
-    redirect_to( root_url, :notice => 'Logged out!')
+    redirect_to( root_url, :notice => 'ログアウトしました!')
   end
 end
