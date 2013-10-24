@@ -5,6 +5,7 @@ Challenge::Application.routes.draw do
   resources :store_book_prices
   resources :user_sessions
   resources :users
+  # , :only => [ :new, :show, :edit ]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
