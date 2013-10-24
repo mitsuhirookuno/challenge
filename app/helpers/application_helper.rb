@@ -5,4 +5,8 @@ module ApplicationHelper
     message
   end
 
+  def number_to_currency_jp( number )
+    number_to_currency( number, unit: "￥", precision: 0 )
+  end
+
 end

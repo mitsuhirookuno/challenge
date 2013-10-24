@@ -1,15 +1,5 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the WelcomeHelper. For example:
-#
-# describe WelcomeHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 describe WelcomeHelper do
 
    describe "フィールド名の日本語変換" do
@@ -34,6 +24,27 @@ describe WelcomeHelper do
        expect(helper.replace_local( source, { target_strings[0] => replaced_strings[0],
                                               target_strings[1] => replaced_strings[1] } )).to eq(destination)
      end
+   end
+
+   describe "日本通貨フォーマット" do
+
+     it "値引き有り" do
+       expect(helper.format_discount_rate( 100, 80 )).to eq('(20％ OFF)')
+     end
+
+
+     it "値引き無し" do
+       expect(helper.format_discount_rate( 100, 100 )).to eq('(0％ OFF)')
+     end
+
+   end
+
+   describe "number_to_currency_jp" do
+
+     it "number_to_currency_jp" do
+       expect(helper.number_to_currency_jp( 80_000 )).to eq('￥80,000')
+     end
+
    end
 
 end
