@@ -5,7 +5,7 @@ class StoreBookPricesController < ApplicationController
 
   # GET /store_book_prices
   def index
-    @store_book_prices = StoreBookPrice.includes( :store_book => [ :store_book_price, :book ] ).load
+    @store_book_prices = StoreBookPrice.includes( :store_book => [ :store_book_price, :book, :store ] ).load
   end
 
   # GET /store_book_prices/1
