@@ -9,10 +9,10 @@ class UserSessionsController < ApplicationController
   def create
     respond_to do |format|
       if @user = login(params[:username],params[:password])
-        format.html { redirect_to( root_url, :notice => 'ログインに成功しました.') }
+        format.html { redirect_to( root_url, :notice => 'ログインに成功しました') }
         format.xml { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { flash.now[:alert] = "Login failed."; render :action => "new" }
+        format.html { flash.now[:alert] = "ログインに失敗しました"; render :action => "new" }
         format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
