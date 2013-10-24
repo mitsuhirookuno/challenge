@@ -5,7 +5,7 @@
 
       <ul>
       <% @store_book_price.errors.full_messages.each do |msg| %>
-        <li><%= msg.gsub(/Price/,'値段') %></li>
+        <li><%= replace_local( msg, { 'Price' => '値段' } ) %></li>
       <% end %>
       </ul>
     </div>

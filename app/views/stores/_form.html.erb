@@ -5,7 +5,7 @@
 
       <ul>
       <% @store.errors.full_messages.each do |msg| %>
-        <li><%= msg.gsub(/Name/,'名称') %></li>
+        <li><%= replace_local( msg, { 'Name' => '名称' } ) %></li>
       <% end %>
       </ul>
     </div>

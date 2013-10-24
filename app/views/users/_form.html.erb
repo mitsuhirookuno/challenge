@@ -6,7 +6,10 @@
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg.gsub(/Username/,'ユーザー名').gsub(/Email/,'メールアドレス').gsub(/Password/,'パスワード').gsub(/Password confirmation/,'パスワード（確認）') %></li>
+        <li><%= replace_local( msg, { 'Username' => 'ユーザー名',
+                                      'Email'    => 'メールアドレス',
+                                      'Password' => 'パスワード',
+                                      'Password confirmation' => 'パスワード（確認）' } ) %></li>
       <% end %>
       </ul>
     </div>
