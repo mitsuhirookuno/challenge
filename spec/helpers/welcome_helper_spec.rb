@@ -26,7 +26,7 @@ describe WelcomeHelper do
      end
    end
 
-   describe "日本通貨フォーマット" do
+   describe "値引き率のフォーマット" do
 
      it "値引き有り" do
        expect(helper.format_discount_rate( 100, 80 )).to eq('(20％ OFF)')
@@ -39,9 +39,9 @@ describe WelcomeHelper do
 
    end
 
-   describe "number_to_currency_jp" do
+   describe "日本通貨フォーマット" do
 
-     it "number_to_currency_jp" do
+     it "通貨記号とセパレーターが付いている" do
        expect(helper.number_to_currency_jp( 80_000 )).to eq('￥80,000')
      end
 
