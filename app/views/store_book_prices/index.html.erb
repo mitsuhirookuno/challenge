@@ -16,7 +16,7 @@
       <tr>
         <td><%= store_book_price.store_book.book.name %></td>
         <td><%= store_book_price.store_book.store.name %></td>
-        <td><%= store_book_price.store_book.store_book_price.price if store_book_price.store_book.store_book_price.presence  %></td>
+        <td><%= store_book_price.price if store_book_price.price.presence  %></td>
         <td><%= link_to '編集', edit_store_book_price_path(store_book_price) %></td>
       </tr>
     <% end %>
